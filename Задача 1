@@ -1,0 +1,22 @@
+with open('HW/HW2 - открытие,чтение,запись файла/recipes.txt', 'rt', encoding='utf-8') as f:
+    cook_book = {}
+    for line in f:
+        dish_name = line.strip()
+        dish_count = int(f.readline())
+        dishes = []
+        for i in range(dish_count):
+            dish = f.readline().strip()
+            ingredient_name, quantity, measure = dish.split(' | ')
+            dishes.append({
+                'ingredient_name': ingredient_name,
+                'quantity': quantity,
+                'measure': measure
+            })
+        f.readline()
+        cook_book[dish_name] = dishes
+        for dish_name, dishes in cook_book.items():
+            print(dish_name)
+            print(dishes)
+
+    # import json
+    # print(json.dumps(cook_book, indent=4))

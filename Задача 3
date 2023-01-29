@@ -1,0 +1,39 @@
+dict_text = {}
+dict_sum = {}
+with open('HW/HW2 - открытие,чтение,запись файла/1.txt', 'r', encoding='utf-8') as f:
+    name = '1.txt'
+    sum_str = 0
+    str_ = []
+    for line in f:
+        sum_str += 1
+        str_.append(line)
+        dict_text[name] = str_
+    dict_sum.setdefault(name, sum_str)
+with open('HW/HW2 - открытие,чтение,запись файла/2.txt', 'r', encoding='utf-8') as f:
+    name = '2.txt'
+    sum_str = 0
+    str_ = []
+    for line in f:
+        sum_str += 1
+        str_.append(line)
+        dict_text[name] = str_
+    dict_sum.setdefault(name, sum_str)
+with open('HW/HW2 - открытие,чтение,запись файла/3.txt', 'r', encoding='utf-8') as f:
+    name = '3.txt'
+    sum_str = 0
+    str_ = []
+    for line in f:
+        sum_str += 1
+        str_.append(line)
+        dict_text[name] = str_
+    dict_sum.setdefault(name, sum_str)
+
+import operator
+sorted_dict = dict(sorted(dict_sum.items, key=operator.itemgetter(1)))
+
+import os
+with open('HW/HW2 - открытие,чтение,запись файла/Text.txt', 'w', encoding='utf-8') as f:
+    text = []
+    for key in sorted_dict.keys():
+        text.append(sorted_dict)
+        print(text)
